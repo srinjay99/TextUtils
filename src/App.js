@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import "./App.css";
 import Alert from "./components/Alert";
-// import About from "./components/About";
+import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-// import {
-//   BrowserRouter,
-//   Routes,
-//   Route,
-//   // Link
-// } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  // Link
+} from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState(`light`); //Whether dark mode is enabled or not
@@ -62,20 +62,20 @@ function App() {
       </BrowserRouter>
 
       The issue is due to upgradation of React from v5 to v6. */}
-      {/* <BrowserRouter> */}
+      <BrowserRouter>
         {/* <Navbar title="TextUtils" aboutText="About Us" /> */}
         <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <div className="container my-3">
-          {/* <Routes> */}
+          <Routes>
             {/* /users --> Component 1
             /users/home --> Component 2 */}
-            {/* <Route exact path="/about" element={<About />} />
-            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode} />} /> */}
-            <TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode}/>
-          {/* </Routes> */}
+            <Route exact path="/about" element={<About mode={mode}/>} />
+            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Try TextUtils - Word Counter, Character Counter, LowerCase to UpperCase, Remove Extra Spaces" mode={mode} />} />
+            {/* <TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode}/> */}
+          </Routes>
         </div>
-      {/* // </BrowserRouter> */}
+      </BrowserRouter>
     </>
   );
 }
